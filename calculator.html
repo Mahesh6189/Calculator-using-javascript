@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+         .container{
+            border: solid black;
+            
+            
+     
+        animation: mymove 5s infinite;
+            margin: auto;
+            width: 25%;
+            padding: 25px 5px 20px 5px;
+             
+             border-radius: 2em;
+             
+      
+      box-shadow: 10px 5px 10px 5px grey;
+            
+        }
+        .rows{
+            transform: rotate(-1deg);
+            margin: auto;
+            text-align: center;
+            margin-top: 10px;
+            background-color:
+            
+            
+        }
+        .button:hover {
+        background-color:blueviolet ;
+        font-size: 2 rem;
+    
+
+}
+.zero:hover {
+        background-color:blueviolet ;
+}
+        .button{ 
+            font-weight: 100em;
+            font-family: algerian;
+            width:20%;
+      font-size: 1.4rem;      
+    border-color: solid black;
+  text-align: center;
+  margin:5px 5px 5px 5px;
+  width: 50px;
+  height: 50px;
+  
+  border-radius: 50%;
+  box-shadow: 5px 5px 5px 5px #888888;;
+  
+        }
+        .input-box{
+            
+            margin-bottom: 10px;
+            margin: auto;
+            text-align: center;
+            margin-top: 10px;
+            height: 80px;
+            margin-bottom: 10px;
+            
+            
+        }
+        .output{
+            
+            border-color: black;
+            margin-left: 20px;
+            margin-right: 20px;
+            background-color: blanchedalmond;
+            height:60px;
+            width:90%;
+            box-shadow: 5px 8px 5px 5px #888888;
+  
+        }
+        .zero{
+            font-style: oblique;
+            
+            border-color:black ;
+            font-size: 1.5rem;
+            box-shadow: 5px 5px 5px 5px #888888;
+        
+  text-align: center;
+  margin:2px 2px 2px 2px;
+  width: 120px;
+  height: 50px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 45%;
+  
+
+        }
+        /* Your CSS styles */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-box">
+            <input type="text" class="output" id="output" placeholder="Welcome to Calculator">
+        </div>
+        <div class="rows">
+            <button class="button" onclick="clearOutput()">AC</button>
+            <button class="button" onclick="deleteLast()">DEL</button>
+            <button class="button" onclick="appendValue('%')">%</button>
+            <button class="button" onclick="appendValue('/')">/</button>
+        </div>
+        <div class="rows">
+            <button class="button" onclick="appendValue('7')">7</button>
+            <button class="button" onclick="appendValue('8')">8</button>
+            <button class="button" onclick="appendValue('9')">9</button>
+            <button class="button" onclick="appendValue('*')">X</button>
+        </div>
+        <div class="rows">
+            <button class="button" onclick="appendValue('4')">4</button>
+            <button class="button" onclick="appendValue('5')">5</button>
+            <button class="button" onclick="appendValue('6')">6</button>
+            <button class="button" onclick="appendValue('-')">-</button>
+        </div>
+        <div class="rows">
+            <button class="button" onclick="appendValue('1')">1</button>
+            <button class="button" onclick="appendValue('2')">2</button>
+            <button class="button" onclick="appendValue('3')">3</button>
+            <button class="button" onclick="appendValue('+')">+</button>
+        </div>
+        <div class="rows">
+            <button class="zero" onclick="appendValue('0')">0</button>
+            <button class="button" onclick="appendValue('.')">,</button>
+            <button class="button" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to append value to the output
+        function appendValue(value) {
+            document.getElementById("output").value += value;
+        }
+
+        // Function to clear the output
+        function clearOutput() {
+            document.getElementById("output").value = "";
+        }
+
+        // Function to delete the last character from the output
+        function deleteLast() {
+            var output = document.getElementById("output").value;
+            document.getElementById("output").value = output.slice(0, -1);
+        }
+
+        // Function to perform calculation
+        function calculate() {
+            var output = document.getElementById("output").value;
+            try {
+                var result = eval(output);
+                document.getElementById("output").value = result;
+            } catch (error) {
+                document.getElementById("output").value = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
